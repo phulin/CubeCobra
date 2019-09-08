@@ -2299,7 +2299,7 @@ router.post('/api/updatecard/:id', ensureAuth, function(req, res) {
         if (!card.type_line) {
           card.type_line = carddb.carddict[card.cardID].type;
         }
-        if (!found && cardsAreEquivalent(card, req.body.src, carddb)) {
+        if (!found && req.body.src && cardsAreEquivalent(card, req.body.src, carddb)) {
           found = true;
           var updated = req.body.updated;
           Object.keys(Cube.schema.paths.cards.schema.paths).forEach(function(key) {
