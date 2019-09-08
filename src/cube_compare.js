@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
+import CardModalForm from './components/CardModalForm';
 import CompareView from './components/CompareView';
 
 class CubeCompare extends Component {
   constructor(props) {
     super(props);
-
-    const cube = JSON.parse(document.getElementById('cuberaw').value);
-    const cards = cube.map((card, index) => Object.assign(card, { index }));
 
     this.state = {
       cards: [],
@@ -25,7 +23,11 @@ class CubeCompare extends Component {
   }
 
   render() {
-    return <CompareView cards={this.state.cards} sorts={this.state.sorts} {...this.props} />;
+    return (
+      <CardModalForm>
+        <CompareView cards={this.state.cards} sorts={this.state.sorts} {...this.props} />
+      </CardModalForm>
+    );
   }
 }
 
