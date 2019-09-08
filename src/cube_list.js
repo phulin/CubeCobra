@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
+import CardModalForm from './components/CardModalForm';
 import CurveView from './components/CurveView';
 import ListView from './components/ListView';
 import TableView from './components/TableView';
@@ -23,12 +24,16 @@ class CubeList extends Component {
 
   render() {
     let { cubeView, cards } = this.state;
-    return <>
-      <TableView cards={cards} style={{ display: cubeView === 'table' ? 'flex' : 'none' }} />
-      <VisualSpoiler cards={cards} style={{ display: cubeView === 'spoiler' ? 'block' : 'none' }} />
-      <CurveView cards={cards} style={{ display: cubeView === 'curve' ? 'block' : 'none' }} />
-      <ListView cards={cards} style={{ display: cubeView === 'list' ? 'block' : 'none' }} />
-    </>;
+    let canEditInput = document.getElementById('canEdit');
+    let canEdit = canEditInput && canEditInput.value === 'true';
+    return (
+      <CardModalForm canEdit={canEdit}>
+        <TableView cards={cards} style={{ display: cubeView === 'table' ? 'flex' : 'none' }} />
+        <VisualSpoiler cards={cards} style={{ display: cubeView === 'spoiler' ? 'block' : 'none' }} />
+        <CurveView cards={cards} style={{ display: cubeView === 'curve' ? 'block' : 'none' }} />
+        <ListView cards={cards} style={{ display: cubeView === 'list' ? 'block' : 'none' }} />
+      </CardModalForm>
+    );
   }
 }
 
