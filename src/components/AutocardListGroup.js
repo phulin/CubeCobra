@@ -5,6 +5,12 @@ import { Col, ListGroup, ListGroupItem, Row } from 'reactstrap';
 import AutocardListItem from './AutocardListItem';
 import GroupModalContext from './GroupModalContext';
 
+const compareNames = (a, b) => {
+  const textA = a.details.name.toUpperCase();
+  const textB = b.details.name.toUpperCase();
+  return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+};
+
 const AutocardListGroup = ({ cards, heading, primary, secondary, tertiary }) => {
   let groups = sortIntoGroups(cards, "CMC");
   return (
@@ -24,24 +30,15 @@ const AutocardListGroup = ({ cards, heading, primary, secondary, tertiary }) => 
           </ListGroupItem>
         }
       </GroupModalContext.Consumer>
-      {
-        getLabels("CMC").filter(cmc => groups[cmc]).map(cmc => (
-          <Row key={cmc} noGutters className="cmc-group">
-            <Col>
-              {
-                groups[cmc].sort(function(a,b)
-                {
-                  const textA = a.details.name.toUpperCase();
-                  const textB =  b.details.name.toUpperCase();
-                  return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
-                }).map(card =>
-                  (<AutocardListItem key={card.details.name} card={card} />)
-                )
-              }
-            </Col>
-          </Row>
-        ))
-      }
+      {getLabels("CMC").filter(cmc => groups[cmc]).map(cmc => (
+        <Row key={cmc} noGutters className="cmc-group">
+          <Col>
+            {groups[cmc].sort(compareNames).map(card =>
+              <AutocardListItem key={card.index || card.details.name} card={card} />
+            )}
+          </Col>
+        </Row>
+      ))}
     </ListGroup>
   );
 }
