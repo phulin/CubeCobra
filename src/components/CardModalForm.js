@@ -77,10 +77,7 @@ class CardModalForm extends Component {
         this.setState(({ card }) => ({
           card: {
             ...card,
-            details: {
-              ...newDetails,
-              display_image: card.imgUrl || newDetails.image_normal,
-            },
+            details: newDetails,
           }
         }));
       } else {
@@ -132,10 +129,7 @@ class CardModalForm extends Component {
         ...cube[index],
         ...updated,
         index,
-        details: {
-          ...cardJson.card,
-          display_image: updated.imgUrl || cardJson.card.image_normal,
-        },
+        details: cardJson.card,
       };
 
       // magical incantation to get the global state right.

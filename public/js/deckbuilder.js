@@ -21,6 +21,11 @@ window.onresize = function() {
   renderDraft();
 }
 
+var showCustomImages = true;
+function displayImage(card) {
+  return showCustomImages ? (card.imgUrl || card.details.image_normal) : card.details.image_normal;
+}
+
 var hasCustomImages = false;
 $("#customImageDisplayMenuItem").hide();
 deck.playerdeck.forEach(function(inner, index) {
@@ -31,6 +36,11 @@ deck.playerdeck.forEach(function(inner, index) {
       $("#customImageDisplayMenuItem").show();
     }
   });
+});
+
+$('#customImageDisplayToggle').click(function (e) {
+  showCustomImages = $(this).prop('checked');
+  renderDraft();
 });
 
 $('#addBasicsButton').click(function(e) {
@@ -50,8 +60,7 @@ $('#saveDeckButton').click(function(e) {
 });
 
 $('#customImageDisplayToggle').click(function(e) {
-  var enabled = $(this).prop('checked'),
-    display_image;
+  var enabled = $(this).prop('checked');
   deck.playerdeck.forEach(function(inner, index) {
     inner.forEach(function(card, index) {
       adjustDisplayImage(card, enabled);
@@ -306,11 +315,11 @@ function getCardColumnHtml(col, index, isSideboard = false) {
   }
 
   col.forEach(function(card, index2) {
-    colhtml += '<a style="z-index:' + index2 + '; position: relative; top:-' + 155 * (index2) + 'px;" class="autocard" card="' + card.details.display_image;
+    colhtml += '<a style="z-index:' + index2 + '; position: relative; top:-' + 155 * (index2) + 'px;" class="autocard" card="' + displayImage(card);
     if (card.details.card_flip) {
       colhtml += '" card_flip="' + card.details.image_flip;
     }
-    colhtml += '" href="#"><img class="' + imageClass + '" data-id="' + index2 + '" data-col="' + index + '" src="' + card.details.display_image + '" width="' + cardWidth + '" height="' + cardHeight + '"/></a>';
+    colhtml += '" href="#"><img class="' + imageClass + '" data-id="' + index2 + '" data-col="' + index + '" src="' + displayImage(card) + '" width="' + cardWidth + '" height="' + cardHeight + '"/></a>';
   });
 
   if (col.length > 0) {
@@ -383,7 +392,7 @@ function setupDrag(elmnt, fromdeck) {
       dragCard = deck.playersideboard[e.target.getAttribute('data-col')].splice(e.target.getAttribute('data-id'), 1)[0];
     }
     //set drag element's inner html
-    dragElement.innerHTML = '<img src="' + dragCard.details.display_image + '" width="' + cardWidth + '" height="' + cardHeight + '"/></a>';
+    dragElement.innerHTML = '<img src="' + dragdisplayImage(card) + '" width="' + cardWidth + '" height="' + cardHeight + '"/></a>';
     dragElement.style.top = (e.clientY - cardHeight / 2 + self.pageYOffset) + "px";
     dragElement.style.left = (e.clientX - cardWidth / 2 + self.pageXOffset) + "px";
     autocard_hide_card();

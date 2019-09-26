@@ -4,6 +4,7 @@ import { Button, Col, Form, FormGroup, Input, InputGroup, InputGroupAddon, Input
 
 import ButtonLink from './ButtonLink';
 import ColorCheck from './ColorCheck';
+import DisplayContext from './DisplayContext';
 import ImageFallback from './ImageFallback';
 import TagInput from './TagInput';
 
@@ -16,36 +17,43 @@ const CardModal = ({
   tagActions,
   ...props
 }) => {
+  let { imgUrl, details } = card;
+  let { image_normal, name } = details;
+
   let tcgplayerLink = 'https://shop.tcgplayer.com/';
-  if (card.details.tcgplayer_id) {
-    tcgplayerLink += `product/productsearch?id=${card.details.tcgplayer_id}`;
+  if (details.tcgplayer_id) {
+    tcgplayerLink += `product/productsearch?id=${details.tcgplayer_id}`;
   } else {
-    tcgplayerLink += `productcatalog/product/show?ProductName=${card.details.name}`;
+    tcgplayerLink += `productcatalog/product/show?ProductName=${details.name}`;
   }
   tcgplayerLink += '&partner=CubeCobra&utm_campaign=affiliate&utm_medium=CubeCobra&utm_source=CubeCobra';
   return (
     <Modal size="lg" labelledby="cardModalHeader" toggle={toggle} {...props}>
       <ModalHeader id="cardModalHeader" toggle={toggle}>
-        {card.details.name}
+        {name}
       </ModalHeader>
       <ModalBody>
         <Row>
           <Col xs="12" sm="4">
-            <ImageFallback
-              className="w-100"
-              src={card.details.display_image}
-              fallbackSrc="/content/default_card.png"
-              alt={card.name}
-            />
+            <DisplayContext.Consumer>
+              {({ showCustomImages }) =>
+                <ImageFallback
+                  className="w-100"
+                  src={showCustomImages && imgUrl ? imgUrl : image_normal}
+                  fallbackSrc="/content/default_card.png"
+                  alt={name}
+                />
+              }
+            </DisplayContext.Consumer>
             <div className="price-area">
-              {!card.details.price ? '' :
+              {!details.price ? '' :
                 <div className="card-price">
-                  TCGPlayer Market: {card.details.price.toFixed(2)}
+                  TCGPlayer Market: {details.price.toFixed(2)}
                 </div>
               }
-              {!card.details.price_foil ? '' :
+              {!details.price_foil ? '' :
                 <div className="card-price">
-                  Foil TCGPlayer Market: {card.details.price_foil.toFixed(2)}
+                  Foil TCGPlayer Market: {details.price_foil.toFixed(2)}
                 </div>
               }
             </div>
@@ -125,7 +133,7 @@ const CardModal = ({
             <span className="d-sm-none">Remove</span>
           </Button>
         }
-        <ButtonLink color="secondary" href={card.details.scryfall_url}>
+        <ButtonLink color="secondary" href={details.scryfall_url}>
           <span className="d-none d-sm-inline">View on Scryfall</span>
           <span className="d-sm-none">Scryfall</span>
         </ButtonLink>

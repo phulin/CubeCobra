@@ -4,7 +4,7 @@ import CardModalContext from './CardModalContext';
 import DisplayContext from './DisplayContext';
 import ImageFallback from './ImageFallback';
 
-const AutocardImage = ({ index, display_image, image_normal, image_flip, tags }) => (
+const AutocardImage = ({ index, imgUrl, image_normal, image_flip, tags }) => (
   <DisplayContext.Consumer>
     {({ showCustomImages }) =>
       <CardModalContext.Consumer>
@@ -12,14 +12,14 @@ const AutocardImage = ({ index, display_image, image_normal, image_flip, tags })
           <a
             href="#"
             className="autocard"
-            card={showCustomImages ? display_image : image_normal}
+            card={showCustomImages && imgUrl ? imgUrl : image_normal}
             card_flip={image_flip}
             card_tags={tags}
             onClick={e => { e.preventDefault(); openCardModal(cube[index]); }}
           >
             <ImageFallback
               cardindex={index}
-              src={display_image}
+              src={showCustomImages && imgUrl ? imgUrl : image_normal}
               fallbackSrc="/content/default_card.png"
               alt={name}
               width={150}

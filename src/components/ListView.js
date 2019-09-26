@@ -118,7 +118,6 @@ class ListViewRaw extends Component {
             response => response.json()
           ).then(json => {
             cube[index].details = json.card;
-            cube[index].details.display_image = updated.imgUrl || json.card.image_normal;
             cubeDict[cube[index].index] = cube[index];
           });
         }
@@ -201,7 +200,7 @@ class ListViewRaw extends Component {
   }
 
   render() {
-    const { cards, primary, secondary, tertiary, changeSort, showTagColors } = this.props;
+    const { cards, primary, secondary, tertiary, changeSort, showCustomImages, showTagColors } = this.props;
     const groups = {};
     for (const [label1, primaryGroup] of Object.entries(sortIntoGroups(cards, primary))) {
       groups[label1] = sortIntoGroups(primaryGroup, secondary);
@@ -229,7 +228,7 @@ class ListViewRaw extends Component {
               <td className="align-middle">
                 <Input {...inputProps(index, 'check')} type="checkbox" className="d-block mx-auto" />
               </td>
-              <td className="align-middle text-truncate autocard" card={details.display_image}>
+              <td className="align-middle text-truncate autocard" card={showCustomImages && imgUrl ? imgUrl : image_normal }>
                 {details.name}
               </td>
               <td>

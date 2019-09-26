@@ -36,8 +36,7 @@ $('.updateButton').click(function(e) {
 });
 
 $('#customImageDisplayToggle').click(function(e) {
-  var enabled = $(this).prop('checked'),
-    display_image;
+  var enabled = $(this).prop('checked');
   cube.forEach(function(card, index) {
     adjustDisplayImage(card, enabled);
   });

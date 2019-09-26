@@ -17,6 +17,11 @@ window.onresize = function() {
   renderDraft();
 }
 
+var showCustomImages = true;
+function displayImage(card) {
+  return showCustomImages ? (card.imgUrl || card.details.image_normal) : card.details.image_normal;
+}
+
 var hasCustomImages = false;
 $("#customImageDisplayMenuItem").hide();
 deck.forEach(function(inner, index) {
@@ -30,16 +35,9 @@ deck.forEach(function(inner, index) {
 });
 
 $('#customImageDisplayToggle').click(function(e) {
-  var enabled = $(this).prop('checked'),
-    display_image;
-  deck.forEach(function(inner, index) {
-    inner.forEach(function(card, index) {
-      adjustDisplayImage(card, enabled);
-    });
-  });
+  showCustomImages = $(this).prop('checked');
   renderDraft();
 });
-
 
 function renderDraft() {
   setupColumns();
@@ -60,9 +58,9 @@ function renderDraft() {
         lands++;
       }
       if (card.details.card_flip) {
-        colhtml += '<a style="z-index:' + index2 + '; position: relative; top:-' + 155 * (index2) + 'px;" class="autocard" card="' + card.details.display_image + '" card_flip="' + card.details.image_flip + '"><img class="deckcard defaultCardImage" data-id="' + index2 + '" data-col="' + index + '" src="' + card.details.display_image + '" width="' + cardWidth + '" height="' + cardHeight + '"/></a>';
+        colhtml += '<a style="z-index:' + index2 + '; position: relative; top:-' + 155 * (index2) + 'px;" class="autocard" card="' + displayImage(card) + '" card_flip="' + card.details.image_flip + '"><img class="deckcard defaultCardImage" data-id="' + index2 + '" data-col="' + index + '" src="' + displayImage(card) + '" width="' + cardWidth + '" height="' + cardHeight + '"/></a>';
       } else {
-        colhtml += '<a style="z-index:' + index2 + '; position: relative; top:-' + 155 * (index2) + 'px;" class="autocard" card="' + card.details.display_image + '"><img class="deckcard defaultCardImage" data-id="' + index2 + '" data-col="' + index + '" src="' + card.details.display_image + '" width="' + cardWidth + '" height="' + cardHeight + '"/></a>';
+        colhtml += '<a style="z-index:' + index2 + '; position: relative; top:-' + 155 * (index2) + 'px;" class="autocard" card="' + displayImage(card) + '"><img class="deckcard defaultCardImage" data-id="' + index2 + '" data-col="' + index + '" src="' + displayImage(card) + '" width="' + cardWidth + '" height="' + cardHeight + '"/></a>';
       }
     });
     $('#deckColumn' + index).html(colhtml);

@@ -6,8 +6,8 @@ import CardModalContext from './CardModalContext';
 import DisplayContext from './DisplayContext';
 
 const AutocardListItem = ({ card, noCardModal, children }) => {
-  let { display_image, image_normal, image_flip, name } = card.details;
-  let { tags } = card;
+  let { imgUrl, tags, details } = card;
+  let { image_normal, image_flip, name } = details;
   return (
     <DisplayContext.Consumer>
       {({ showCustomImages, showTagColors }) => {
@@ -17,7 +17,7 @@ const AutocardListItem = ({ card, noCardModal, children }) => {
             {openCardModal => <>
               <div
                 className={`card-list-item list-group-item autocard d-flex flex-row ${colorClass}`}
-                card={showCustomImages ? display_image : image_normal}
+                card={showCustomImages && imgUrl ? imgUrl : image_normal}
                 card_flip={image_flip}
                 card_tags={tags}
                 cardindex={card.index}
