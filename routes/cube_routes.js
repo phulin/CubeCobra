@@ -1711,8 +1711,6 @@ router.post('/edit/:id', ensureAuth, function(req, res) {
     } else {
       var edits = req.body.body.split(';');
       var fail_remove = [];
-      var adds = [];
-      var removes = [];
       var changelog = "";
       for (let edit of edits) {
         if (edit.charAt(0) == '+') {
@@ -1726,39 +1724,26 @@ router.post('/edit/:id', ensureAuth, function(req, res) {
           }
         } else if (edit.charAt(0) == '-') {
           //remove id
-          var rm_index = -1;
-          cube.cards.forEach(function(card_to_remove, remove_index) {
-            if (rm_index == -1) {
-              if (card_to_remove.cardID == edit.substring(1)) {
-                rm_index = remove_index;
-              }
-            }
-          });
-          if (rm_index != -1) {
+          var deleteID = edit.substring(1);
+          var rm_index = cube.cards.findIndex(card => card.cardID == deleteID);
+          if (rm_index !== -1) {
             cube.cards.splice(rm_index, 1);
-            changelog += removeCardHtml(carddb.cardFromId(edit.substring(1)));
+            changelog += removeCardHtml(carddb.cardFromId(deleteID));
           } else {
             fail_remove.push(edit.substring(1));
           }
         } else if (edit.charAt(0) == '/') {
-          var tmp_split = edit.substring(1).split('>');
-          var details = carddb.cardFromId(tmp_split[1]);
+          var [addID, deleteID] = edit.substring(1).split('>');
+          var details = carddb.cardFromId(addID);
           util.addCardToCube(cube, details);
 
-          var rm_index = -1;
-          cube.cards.forEach(function(card_to_remove, remove_index) {
-            if (rm_index == -1) {
-              if (card_to_remove.cardID == tmp_split[0]) {
-                rm_index = remove_index;
-              }
-            }
-          });
+          var rm_index = cube.cards.findIndex(card => card.cardID == deleteID);
           if (rm_index != -1) {
             cube.cards.splice(rm_index, 1);
-            changelog += replaceCardHtml(carddb.cardFromId(tmp_split[0]), carddb.cardFromId(tmp_split[1]));
+            changelog += replaceCardHtml(carddb.cardFromId(deleteID), carddb.cardFromId(addID));
           } else {
-            fail_remove.push(tmp_split[0]);
-            changelog += addCardHtml(carddb.cardFromId(tmp_split[1]));
+            fail_remove.push(deleteID);
+            changelog += addCardHtml(carddb.cardFromId(addID));
           }
         }
       }
@@ -1792,9 +1777,7 @@ router.post('/edit/:id', ensureAuth, function(req, res) {
               }
             });
             cube = setCubeType(cube, carddb);
-            Cube.updateOne({
-              _id: cube._id
-            }, cube, function(err) {
+            cube.save(function(err) {
               if (err) {
                 console.log(err, req);
               } else {
@@ -1804,9 +1787,7 @@ router.post('/edit/:id', ensureAuth, function(req, res) {
             });
           } else {
             cube = setCubeType(cube, carddb);
-            Cube.updateOne({
-              _id: cube._id
-            }, cube, function(err) {
+            cube.save(function(err) {
               if (err) {
                 console.log(err, req);
               } else {
