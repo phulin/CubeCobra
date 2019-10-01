@@ -1,7 +1,8 @@
 const fs = require('fs');
 var util = require('./util.js');
 
-var data = {
+//read files
+const data = {
   cardtree: {},
   imagedict: {},
   cardimages: {},
@@ -89,18 +90,41 @@ function registerFileWatcher(filename, attribute) {
   });
 }
 
+
+let aws = null;
+let s3 = null;
+if (process.env.LAMBDA_TASK_ROOT) {
+  aws = require('aws-sdk');
+  s3 = new aws.S3();
+}
+
 function initializeCardDb(dataRoot, skipWatchers) {
   if (dataRoot === undefined) {
     dataRoot = "private";
   }
   var promises = [],
     filepath, attribute;
-  for (var filename in fileToAttribute) {
-    filepath = dataRoot + '/' + filename;
-    attribute = fileToAttribute[filename];
-    promises.push(loadJSONFile(filepath, attribute));
-    if (skipWatchers !== true) {
-      registerFileWatcher(filepath, attribute);
+  for (var [filename, attribute] in fileToAttribute.entries()) {
+    if (process.env.LAMBDA_TASK_ROOT) {
+      // In an S3 Bucket
+      s3.getObject({
+        Bucket: process.env.CARDDB_BUCKET,
+        Key: `${filename}.json`,
+      }, (err, response) => {
+        if (err) {
+          console.log(err);
+          return;
+        }
+
+        console.log('body:', response.Body.slice(0, 400));
+        data[attribute] = JSON.parse(response.Body);
+      });
+    } else {
+      filepath = dataRoot + '/' + filename;
+      promises.push(loadJSONFile(filepath, attribute));
+      if (skipWatchers !== true) {
+        registerFileWatcher(filepath, attribute);
+      }
     }
   }
   return Promise.all(promises);
