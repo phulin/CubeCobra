@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { ChangeEventHandler, useState } from 'react';
+import { Card, CardBody, CardHeader, FormText, Input, Nav, TabContent, TabPane } from 'reactstrap';
 
-import { Card, CardHeader, Input, Nav, TabPane, TabContent, CardBody, FormText } from 'reactstrap';
-
-import Tab from 'components/Tab';
-import Markdown from 'components/Markdown';
 import ErrorBoundary from 'components/ErrorBoundary';
+import Markdown from 'components/Markdown';
+import Tab from 'components/Tab';
 
 const TextEntry = ({ name, value, onChange, maxLength }) => {
   const [tab, setTab] = useState('0');

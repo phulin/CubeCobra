@@ -1,9 +1,9 @@
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useCallback, useState } from 'react';
+import { Col, Nav, Navbar, NavItem, NavLink, Row, Spinner } from 'reactstrap';
+
 import PropTypes from 'prop-types';
-
-import { Navbar, Nav, NavItem, NavLink, Row, Col, Spinner } from 'reactstrap';
-
 import InfiniteScroll from 'react-infinite-scroll-component';
+
 import ArticlePreview from 'components/ArticlePreview';
 import { csrfFetch } from 'utils/CSRF';
 import { wait } from 'utils/Util';

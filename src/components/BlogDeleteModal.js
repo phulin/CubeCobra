@@ -1,10 +1,7 @@
-import PropTypes from 'prop-types';
-
 import React from 'react';
 
-import { csrfFetch } from 'utils/CSRF';
-
 import ConfirmDeleteModal from 'components/ConfirmDeleteModal';
+import { csrfFetch } from 'utils/CSRF';
 
 const BlogDeleteModal = ({ isOpen, toggle, postID }) => {
   const confirm = async () => {

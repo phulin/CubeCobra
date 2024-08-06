@@ -1,6 +1,4 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
+import React, { ReactNode } from 'react';
 import { NavItem, NavLink } from 'reactstrap';
 
 const Tab = ({ tab, setTab, index, children }) => {

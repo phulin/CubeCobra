@@ -1,15 +1,11 @@
-/* eslint-disable react/no-array-index-key */
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
-
 import { Col, ListGroup, ListGroupItem, Row } from 'reactstrap';
 
-import { getLabels, sortIntoGroups } from 'utils/Sort';
-
 import AutocardListItem from 'components/AutocardListItem';
-import CardPropType from 'proptypes/CardPropType';
-import CubeContext from 'contexts/CubeContext';
 import withCardModal from 'components/WithCardModal';
+import CubeContext from 'contexts/CubeContext';
+import Card from 'datatypes/Card';
+import { getLabels, sortIntoGroups } from 'utils/Sort';
 
 const CardModalLink = withCardModal(AutocardListItem);
 

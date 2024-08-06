@@ -1,6 +1,7 @@
-/* eslint-disable react/prop-types */
-import CubeContext from 'contexts/CubeContext';
 import React, { useCallback, useContext } from 'react';
+
+import CubeContext from 'contexts/CubeContext';
+import Card, { BoardType } from 'datatypes/Card';
 
 const withGroupModal =
   (Tag) =>

@@ -1,16 +1,12 @@
-import React, { useMemo, useContext } from 'react';
-import PropTypes from 'prop-types';
-import CardPropType from 'proptypes/CardPropType';
-
+import React, { useContext, useMemo } from 'react';
 import { ListGroup, ListGroupItem } from 'reactstrap';
 
-import { sortDeep } from 'utils/Sort';
-
 import AutocardListItem from 'components/AutocardListItem';
-
 import withCardModal from 'components/WithCardModal';
 import withGroupModal from 'components/WithGroupModal';
 import CubeContext from 'contexts/CubeContext';
+import Card from 'datatypes/Card';
+import { sortDeep } from 'utils/Sort';
 
 const CardModalLink = withCardModal(AutocardListItem);
 const GroupModalLink = withGroupModal(ListGroupItem);

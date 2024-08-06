@@ -1,18 +1,18 @@
-import React, { useState, useCallback } from 'react';
-import PropTypes from 'prop-types';
-import ContentPropType from 'proptypes/ContentPropType';
-
+import React, { useCallback, useState } from 'react';
 import { Card } from 'reactstrap';
-import AspectRatioBox from 'components/AspectRatioBox';
+
 import TimeAgo from 'react-timeago';
-import Username from 'components/Username';
+
+import AspectRatioBox from 'components/AspectRatioBox';
 import MtgImage from 'components/MtgImage';
+import Username from 'components/Username';
+import Article from 'datatypes/Article';
 
 const statusMap = {
-  'p': 'Published',
-  'd': 'Draft',
-  'r': 'In Review',
-}
+  p: 'Published',
+  d: 'Draft',
+  r: 'In Review',
+};
 
 const ArticlePreview = ({ article, showStatus }) => {
   const [hover, setHover] = useState(false);
@@ -48,11 +48,9 @@ const ArticlePreview = ({ article, showStatus }) => {
           <TimeAgo date={article.date} />
         </small>
       </div>
-      {showStatus && (        
+      {showStatus && (
         <div className={`w-100 pb-1 pt-0 px-2 m-0 ${hover ? 'preview-footer-bg-hover' : 'preview-footer-bg'}`}>
-          <small className="float-start">
-            Status: {statusMap[article.status]}
-          </small>
+          <small className="float-start">Status: {statusMap[article.status]}</small>
         </div>
       )}
     </Card>

@@ -1,8 +1,7 @@
-import React from 'react';
-import cx from 'classnames';
-import PropTypes from 'prop-types';
+import React, { HTMLAttributes } from 'react';
 
-/** 2020-11-17 struesdell:
+import cx from 'classnames';
+
  * - Added classnames dependency, allowing for terse classname construction
  * - Added style to props shape to allow partial style passthrough
  * - Added propTypes declaration to resolve ESLint errors (issue #1601)

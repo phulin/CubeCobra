@@ -1,7 +1,4 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import React, { useCallback, useContext, useState, useRef } from 'react';
-import PropTypes from 'prop-types';
-
+import React, { Dispatch, SetStateAction, useCallback, useContext, useRef, useState } from 'react';
 import {
   Button,
   Col,

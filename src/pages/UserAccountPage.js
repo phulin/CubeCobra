@@ -1,7 +1,4 @@
-import React, { useCallback, useEffect, useState, useContext } from 'react';
-import PropTypes from 'prop-types';
-import PatronPropType from 'proptypes/PatronPropType';
-
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import {
   Button,
   Col,

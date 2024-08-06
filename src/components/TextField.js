@@ -1,6 +1,4 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
+import React, { ChangeEventHandler } from 'react';
 import { Input, InputGroup, InputGroupText } from 'reactstrap';
 
 const TextField = ({ name, humanName, placeholder, value, onChange }) => (

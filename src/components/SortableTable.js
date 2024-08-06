@@ -1,6 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Table } from 'reactstrap';
+
+import PropTypes from 'prop-types';
 import { CSVLink } from 'react-csv';
 
 import HeaderCell from 'components/HeaderCell';

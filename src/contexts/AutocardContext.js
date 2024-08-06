@@ -1,6 +1,6 @@
-/* eslint-disable react/prop-types */
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import PropTypes from 'prop-types';
+
+import Card from 'datatypes/Card';
 import { cardFinish, cardTags } from 'utils/Card';
 
 const AutocardContext = React.createContext({});

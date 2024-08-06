@@ -1,10 +1,9 @@
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
-import CardPropType from 'proptypes/CardPropType';
 
+import ImageFallback, { ImageFallbackProps } from 'components/ImageFallback';
+import withAutocard, { WithAutocardProps } from 'components/WithAutocard';
 import DisplayContext from 'contexts/DisplayContext';
-import ImageFallback from 'components/ImageFallback';
-import withAutocard from 'components/WithAutocard';
+import Card from 'datatypes/Card';
 
 const ImageAutocard = withAutocard(ImageFallback);
 

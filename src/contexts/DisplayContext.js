@@ -1,7 +1,5 @@
-/* Holds general display settings. */
-
 import React, { useCallback, useState } from 'react';
-import PropTypes from 'prop-types';
+
 import useLocalStorage from 'hooks/useLocalStorage';
 
 const DisplayContext = React.createContext({

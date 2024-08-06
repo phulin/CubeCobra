@@ -1,5 +1,3 @@
-/* eslint-disable no-loop-func */
-/* eslint-disable no-await-in-loop */
 // Load Environment Variables
 require('dotenv').config();
 

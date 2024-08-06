@@ -1,8 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import CardPropType from 'proptypes/CardPropType';
+import { Col, ColProps, Row } from 'reactstrap';
 
-import { Row, Col } from 'reactstrap';
+import CardDetails from 'datatypes/CardDetails';
 
 function cardImage(Tag, card, cardProps, linkDetails) {
   const cardTag = <Tag card={card} {...cardProps} modalProps={{ card }} />;

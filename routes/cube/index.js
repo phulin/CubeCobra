@@ -1,4 +1,3 @@
-/* eslint-disable no-await-in-loop */
 const express = require('express');
 const uuid = require('uuid/v4');
 // eslint-disable-next-line import/no-unresolved

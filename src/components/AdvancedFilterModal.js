@@ -1,6 +1,4 @@
-import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
-
+import React, { ChangeEvent, useContext } from 'react';
 import {
   Button,
   Col,

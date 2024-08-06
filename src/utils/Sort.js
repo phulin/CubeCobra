@@ -1,4 +1,4 @@
-import { alphaCompare, arrayIsSubset, fromEntries } from 'utils/Util';
+import Card from 'datatypes/Card';
 import {
   cardColorIdentity,
   cardDevotion,

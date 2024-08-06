@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 
 const useLocalStorage = (key, initialValue) => {
   // State to store our value

@@ -1,10 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { Row, Col } from 'reactstrap';
+import { Col, Row } from 'reactstrap';
 
-import { PlusCircleIcon, NoEntryIcon, ArrowSwitchIcon, ToolsIcon, ArrowRightIcon } from '@primer/octicons-react';
+import { ArrowRightIcon, ArrowSwitchIcon, NoEntryIcon, PlusCircleIcon, ToolsIcon } from '@primer/octicons-react';
+
 import withAutocard from 'components/WithAutocard';
-import CardPropType from 'proptypes/CardPropType';
+import Card, { BoardType } from 'datatypes/Card';
 
 const TextAutocard = withAutocard('a');
 

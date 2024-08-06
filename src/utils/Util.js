@@ -1,3 +1,7 @@
+import Card from 'datatypes/Card';
+import { TagColor } from 'datatypes/Cube';
+import { cardCmc, cardColors, cardType } from 'utils/Card';
+
 export function arraysEqual(a, b) {
   if (a === b) return true;
   if (!Array.isArray(a) || !Array.isArray(b)) return false;
@@ -276,7 +280,7 @@ export function xorStrings(strings) {
   if (nonNullStrings.length === 0) {
     return '';
   }
-  
+
   let result = nonNullStrings[0];
   for (let i = 1; i < nonNullStrings.length; i++) {
     result = xor(result, nonNullStrings[i]);
@@ -307,5 +311,5 @@ export default {
   getCardTagColorClass,
   getTagColorClass,
   wait,
-  xorStrings
+  xorStrings,
 };

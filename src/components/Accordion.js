@@ -1,7 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
-import { Card, CardHeader, Collapse, CardBody } from 'reactstrap';
+import React, { ReactNode } from 'react';
+import { Card, CardBody, CardHeader, Collapse } from 'reactstrap';
 
 import useToggle from 'hooks/UseToggle';
 

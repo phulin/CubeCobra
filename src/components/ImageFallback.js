@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { RefObject, useEffect, useState } from 'react';
 
 const ImageFallback = ({ src, fallbackSrc, innerRef, ...props }) => {
   const [fallback, setFallback] = useState(false);

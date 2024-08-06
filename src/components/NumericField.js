@@ -1,6 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
 import { Input, InputGroup, InputGroupText } from 'reactstrap';
 
 const NumericField = ({ name, humanName, placeholder, operator, value, setValue, setOperator }) => (

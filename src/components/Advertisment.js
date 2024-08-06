@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
 
 import AdsContext from 'contexts/AdsContext';
 import useMount from 'hooks/UseMount';

@@ -1,8 +1,7 @@
-/* eslint-disable react/no-array-index-key */
-import PropTypes from 'prop-types';
-import CubePropType from 'proptypes/CubePropType';
-import React from 'react';
-import { InputGroup, InputGroupText, Input } from 'reactstrap';
+import React, { Dispatch, SetStateAction } from 'react';
+import { Input, InputGroup, InputGroupText } from 'reactstrap';
+
+import Cube from 'datatypes/Cube';
 
 const AsfanDropdown = ({ cube, alwaysOn, useAsfans, setUseAsfans, draftFormat, setDraftFormat }) => {
   return (

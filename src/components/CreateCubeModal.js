@@ -1,6 +1,4 @@
-import React, { useState, useRef } from 'react';
-import PropTypes from 'prop-types';
-
+import React, { useRef, useState } from 'react';
 import {
   Col,
   Modal,

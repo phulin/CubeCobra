@@ -1,4 +1,3 @@
-/* eslint-disable no-await-in-loop */
 // Load Environment Variables
 require('dotenv').config();
 
@@ -13,7 +12,6 @@ const { updatePodcast } = require('../serverjs/podcast');
 
 const router = express.Router();
 
-
 router.post('/featuredcubes/rotate', async (req, res) => {
   const { token } = req.body;
 
@@ -23,7 +21,7 @@ router.post('/featuredcubes/rotate', async (req, res) => {
 
   const queue = await FeaturedQueue.querySortedByDate();
   const { items } = queue;
-  
+
   const rotate = await fq.rotateFeatured(items);
 
   if (rotate.success === 'false') {
@@ -44,7 +42,7 @@ router.post('/featuredcubes/rotate', async (req, res) => {
     );
   }
   await Promise.all(notifications);
-  
+
   return res.status(200).send('featured cube rotation check finished successfully');
 });
 
@@ -64,7 +62,7 @@ const tryUpdate = async (podcast) => {
 
 router.post('/podcasts/sync', async (req, res) => {
   const { token } = req.body;
-  
+
   if (token !== process.env.JOBS_TOKEN) {
     return res.statusCode(401).send('Invalid token.');
   }

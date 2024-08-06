@@ -1,12 +1,12 @@
-import React, { useCallback, useMemo, useContext } from 'react';
+import React, { useCallback, useContext, useMemo } from 'react';
+
 import cx from 'classnames';
-import PropTypes from 'prop-types';
-import CardPropType from 'proptypes/CardPropType';
-import { getCardTagColorClass } from 'utils/Util';
 
 import withAutocard from 'components/WithAutocard';
 import TagColorContext from 'contexts/TagColorContext';
 import UserContext from 'contexts/UserContext';
+import Card from 'datatypes/Card';
+import { getCardTagColorClass } from 'utils/Util';
 
 const AutocardDiv = withAutocard('li');
 

@@ -1,7 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-import UserPropType from 'proptypes/UserPropType';
+import User from 'datatypes/User';
 
 const Username = ({ user, nolink }) => {
   if (nolink) {

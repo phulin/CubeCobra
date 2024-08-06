@@ -1,11 +1,4 @@
-import React, { useEffect, useMemo, useCallback, useContext } from 'react';
-import PropTypes from 'prop-types';
-
-import AddToCubeModal from 'components/AddToCubeModal';
-import withAutocard from 'components/WithAutocard';
-import withModal from 'components/WithModal';
-import CubePropType from 'proptypes/CubePropType';
-import { encodeName } from 'utils/Card';
+import React, { useCallback, useContext, useEffect, useMemo } from 'react';
 import {
   Card,
   CardBody,

@@ -1,6 +1,5 @@
-import React, { forwardRef } from 'react';
-import { Form, Input } from 'reactstrap';
-import PropTypes from 'prop-types';
+import React, { forwardRef, ReactNode } from 'react';
+import { Form, FormProps, Input } from 'reactstrap';
 
 import { getCsrfToken } from 'utils/CSRF';
 

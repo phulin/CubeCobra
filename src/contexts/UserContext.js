@@ -1,4 +1,6 @@
-import React from 'react';
+import { createContext } from 'react';
+
+import User from 'datatypes/User';
 
 const UserContext = React.createContext();
 

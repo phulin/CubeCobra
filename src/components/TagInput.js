@@ -1,7 +1,8 @@
 import React from 'react';
-import { WithContext as ReactTags } from 'react-tag-input';
-import PropTypes from 'prop-types';
 
+import { WithContext as ReactTags } from 'react-tag-input';
+
+import TagData from 'datatypes/TagData';
 import { getTagColorClass } from 'utils/Util';
 
 const TagInput = ({ tags, addTag, deleteTag, reorderTag, suggestions, tagColors }) => {

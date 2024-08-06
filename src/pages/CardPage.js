@@ -1,9 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import CardPricePropType from 'proptypes/CardPricePropType';
-import CardPropType from 'proptypes/CardPropType';
-import HistoryPropType from 'proptypes/HistoryPropType';
-
 import {
   Card,
   CardHeader,

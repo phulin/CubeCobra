@@ -1,15 +1,16 @@
 import React, { useMemo } from 'react';
-import PropTypes from 'prop-types';
-// eslint-disable-next-line no-unused-vars
-import { Chart as ChartJS } from 'chart.js/auto';
-import { Chart } from 'react-chartjs-2';
-import { Col, Row, InputGroup, Input, InputGroupText } from 'reactstrap';
+import { Col, Input, InputGroup, InputGroupText, Row } from 'reactstrap';
 
-import AsfanDropdown from 'components/AsfanDropdown';
-import useQueryParam from 'hooks/useQueryParam';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { Chart as ChartJS } from 'chart.js/auto';
+import PropTypes from 'prop-types';
 import CardPropType from 'proptypes/CardPropType';
 import CubePropType from 'proptypes/CubePropType';
+import { Chart } from 'react-chartjs-2';
+
+import AsfanDropdown from 'components/AsfanDropdown';
 import { calculateAsfans } from 'drafting/createdraft';
+import useQueryParam from 'hooks/useQueryParam';
 import { sortIntoGroups, SORTS } from 'utils/Sort';
 
 const ChartComponent = ({ cards, characteristics, cube }) => {

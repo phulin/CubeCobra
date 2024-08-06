@@ -1,6 +1,5 @@
 import React, { useCallback, useState } from 'react';
-
-import { UncontrolledAlert } from 'reactstrap';
+import { UncontrolledAlert, UncontrolledAlertProps } from 'reactstrap';
 
 export const Alerts = ({ alerts, ...props }) =>
   alerts.map(({ color, message }, index) => (

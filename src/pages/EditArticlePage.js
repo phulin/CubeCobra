@@ -1,7 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
-import PropTypes from 'prop-types';
-import ContentPropType from 'proptypes/ContentPropType';
-
+import React, { useContext, useEffect, useState } from 'react';
 import {
   Spinner,
   Nav,

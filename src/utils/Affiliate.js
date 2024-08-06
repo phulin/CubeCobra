@@ -1,3 +1,5 @@
+import Card from 'datatypes/Card';
+
 export function getTCGLink(card) {
   const { name, isToken } = card.details;
   const tcgplayerId = card.details.tcgplayer_id;

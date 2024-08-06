@@ -1,19 +1,17 @@
 import React, { useContext, useState } from 'react';
-
-import PropTypes from 'prop-types';
-import BlogPostPropType from 'proptypes/BlogPostPropType';
+import { Card, CardBody, CardHeader, Col, Row } from 'reactstrap';
 
 import TimeAgo from 'react-timeago';
 
-import { Card, CardHeader, Row, Col, CardBody } from 'reactstrap';
-
-import UserContext from 'contexts/UserContext';
 import BlogContextMenu from 'components/BlogContextMenu';
-import EditBlogModal from 'components/EditBlogModal';
+import BlogPostChangelog from 'components/BlogPostChangelog';
 import CommentsSection from 'components/CommentsSection';
+import EditBlogModal from 'components/EditBlogModal';
 import Markdown from 'components/Markdown';
 import Username from 'components/Username';
-import BlogPostChangelog from 'components/BlogPostChangelog';
+import UserContext from 'contexts/UserContext';
+import BlogPostData from 'datatypes/BlogPost';
+import User from 'datatypes/User';
 
 const BlogPost = ({ post, noScroll }) => {
   const user = useContext(UserContext);

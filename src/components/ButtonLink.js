@@ -1,5 +1,4 @@
-/* eslint-disable react/prop-types */
-import React from 'react';
+import React, { AnchorHTMLAttributes } from 'react';
 
 const ButtonLink = ({ children, outline, color = 'primary', block, ...props }) => {
   const type = outline ? `btn-outline-${color}` : `btn-${color}`;

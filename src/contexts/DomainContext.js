@@ -1,4 +1,4 @@
-import React from 'react';
+import { createContext } from 'react';
 
 const DomainContext = React.createContext(false);
 

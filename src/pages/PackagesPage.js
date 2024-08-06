@@ -1,6 +1,4 @@
-import React, { useState, useContext, useCallback } from 'react';
-import PropTypes from 'prop-types';
-
+import React, { useCallback, useContext, useState } from 'react';
 import {
   Spinner,
   Card,

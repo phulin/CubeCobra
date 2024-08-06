@@ -1,6 +1,4 @@
-import React, { useCallback, useState, useContext, useMemo } from 'react';
-import PropTypes from 'prop-types';
-
+import React, { useCallback, useContext, useMemo, useState } from 'react';
 import {
   Button,
   Row,

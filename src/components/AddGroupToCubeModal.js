@@ -1,9 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import CubePropType from 'proptypes/CubePropType';
-import { csrfFetch } from 'utils/CSRF';
-import withAutocard from 'components/WithAutocard';
-import LoadingButton from 'components/LoadingButton';
 import {
   Modal,
   ModalHeader,

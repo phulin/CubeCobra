@@ -1,6 +1,6 @@
-/* eslint-disable react/prop-types */
-import React, { useCallback, useState } from 'react';
+import React, { ComponentProps, ComponentType, ElementType, MouseEvent, ReactNode, useCallback, useState } from 'react';
 
+// If the modal is controlled, modalProps should include isOpen and toggle. If not, the component will create its own.
 const withModal =
   (Tag, ModalTag) =>
   ({ children, className, modalProps, altClick, ...props }) => {

@@ -1,14 +1,14 @@
-import React, { useState, useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
+import { Card, CardBody, CardHeader, Spinner } from 'reactstrap';
+
 import PropTypes from 'prop-types';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
-import { Card, CardHeader, CardBody, Spinner } from 'reactstrap';
-
-import Notification from 'components/Notification';
 import Banner from 'components/Banner';
 import DynamicFlash from 'components/DynamicFlash';
+import Notification from 'components/Notification';
+import RenderToRoot from 'components/RenderToRoot';
 import MainLayout from 'layouts/MainLayout';
-import InfiniteScroll from 'react-infinite-scroll-component';
-import RenderToRoot from 'utils/RenderToRoot';
 import { csrfFetch } from 'utils/CSRF';
 import { wait } from 'utils/Util';
 

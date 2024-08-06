@@ -1,9 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-
-import { csrfFetch } from 'utils/CSRF';
-import MainLayout from 'layouts/MainLayout';
-import DynamicFlash from 'components/DynamicFlash';
 import {
   Button,
   Card,

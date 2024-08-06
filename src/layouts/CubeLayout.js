@@ -1,15 +1,13 @@
-import React, { useContext } from 'react';
+import React, { ReactNode, useContext } from 'react';
+import { NavItem, NavLink } from 'reactstrap';
 
-import PropTypes from 'prop-types';
-import CubePropType from 'proptypes/CubePropType';
-
+import CubeSubtitle from 'components/CubeSubtitle';
+import ErrorBoundary from 'components/ErrorBoundary';
 import CubeContext, { CubeContextProvider } from 'contexts/CubeContext';
 import TagColorContext from 'contexts/TagColorContext';
-import ErrorBoundary from 'components/ErrorBoundary';
+import Card, { BoardType } from 'datatypes/Card';
+import Cube from 'datatypes/Cube';
 import { getCubeId } from 'utils/Util';
-import CubeSubtitle from 'components/CubeSubtitle';
-
-import { NavItem, NavLink } from 'reactstrap';
 
 function CubeNavItem({ link, activeLink, children }) {
   const { cube } = useContext(CubeContext);

@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React, { Dispatch, SetStateAction, useState } from 'react';
 import { Collapse } from 'reactstrap';
 
 import LinkButton from 'components/LinkButton';

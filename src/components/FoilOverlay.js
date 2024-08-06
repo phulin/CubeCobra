@@ -1,5 +1,6 @@
-/* eslint-disable react/prop-types */
-import React from 'react';
+import React, { ComponentProps, ElementType } from 'react';
+
+import Card from 'datatypes/Card';
 
 const FoilOverlay =
   (Tag) =>

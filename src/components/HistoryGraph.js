@@ -1,9 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-// eslint-disable-next-line no-unused-vars
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Chart as ChartJS } from 'chart.js/auto';
-import { Chart } from 'react-chartjs-2';
+import PropTypes from 'prop-types';
 import CardHistoryPropType from 'proptypes/CardHistoryPropType';
+import { Chart } from 'react-chartjs-2';
 
 const formatDate = (date) => `${date.getDate()}-${date.getMonth()}-${date.getFullYear()}`;
 

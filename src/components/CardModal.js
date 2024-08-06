@@ -1,6 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
-import PropTypes from 'prop-types';
-
+import React, { useCallback, useEffect, useState } from 'react';
 import {
   Button,
   Col,

@@ -1,7 +1,4 @@
-import React, { useState, useContext } from 'react';
-import PropTypes from 'prop-types';
-import CubePropType from 'proptypes/CubePropType';
-
+import React, { useContext, useState } from 'react';
 import {
   Button,
   Card,

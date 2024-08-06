@@ -1,6 +1,4 @@
-import React, { useCallback, useState, useContext } from 'react';
-import PropTypes from 'prop-types';
-
+import React, { useCallback, useContext, useState } from 'react';
 import {
   Col,
   Collapse,

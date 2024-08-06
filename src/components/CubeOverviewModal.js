@@ -1,7 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import PropTypes from 'prop-types';
-import CubePropType from 'proptypes/CubePropType';
-
+import React, { useCallback, useEffect, useState } from 'react';
 import {
   Modal,
   ModalBody,

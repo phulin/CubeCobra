@@ -1,4 +1,3 @@
-/* eslint-disable no-await-in-loop */
 const express = require('express');
 
 const { ensureAuth } = require('../middleware');

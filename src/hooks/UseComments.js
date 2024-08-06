@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
-import { csrfFetch } from 'utils/CSRF';
+
+import Comment from 'datatypes/Comment';
 import { findUserLinks } from 'markdown/parser';
+import { csrfFetch } from 'utils/CSRF';
 import { wait } from 'utils/Util';
 
 const useComments = (parent, type) => {

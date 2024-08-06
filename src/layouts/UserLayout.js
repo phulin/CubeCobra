@@ -1,14 +1,12 @@
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
+import { Button, Nav, Navbar, NavItem, NavLink, Row } from 'reactstrap';
 
-import UserContext from 'contexts/UserContext';
-
+import CreateCubeModal from 'components/CreateCubeModal';
 import ErrorBoundary from 'components/ErrorBoundary';
 import FollowersModal from 'components/FollowersModal';
 import withModal from 'components/WithModal';
-import CreateCubeModal from 'components/CreateCubeModal';
-
-import { Button, Nav, Navbar, NavItem, NavLink, Row } from 'reactstrap';
+import UserContext from 'contexts/UserContext';
+import User from 'datatypes/User';
 
 const FollowersModalLink = withModal('a', FollowersModal);
 const CreateCubeModalLink = withModal(NavLink, CreateCubeModal);

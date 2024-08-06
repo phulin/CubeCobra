@@ -1,12 +1,4 @@
-import React, { useState, useContext } from 'react';
-import PropTypes from 'prop-types';
-
-import UserContext from 'contexts/UserContext';
-import ImageFallback from 'components/ImageFallback';
-import { csrfFetch } from 'utils/CSRF';
-import useLocalStorage from 'hooks/useLocalStorage';
-import LoadingButton from 'components/LoadingButton';
-
+import React, { useContext, useState } from 'react';
 import {
   Modal,
   ModalHeader,

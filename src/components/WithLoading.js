@@ -1,7 +1,6 @@
-import React, { useMemo, useState } from 'react';
-import PropTypes from 'prop-types';
-
+import React, { FunctionComponent, useMemo, useState } from 'react';
 import { Spinner } from 'reactstrap';
+
 import { fromEntries } from 'utils/Util';
 
 const withLoading = (Tag, handlers) => {

@@ -1,21 +1,20 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { ComponentPropsWithoutRef, ReactNode } from 'react';
+import { Card, CardBody, Col, Row } from 'reactstrap';
 
-import ReactMarkdown from 'react-markdown';
-import Latex from 'react-latex';
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { a11yLight, a11yDark } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 import { LinkIcon } from '@primer/octicons-react';
+import Latex from 'react-latex';
+// @ts-expect-error This library has no types.
+import ReactMarkdown, { MarkdownProps } from 'react-markdown';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { a11yDark, a11yLight } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
-import { ALL_PLUGINS, LIMITED_REHYPE_PLUGINS, ALL_REHYPE_PLUGINS } from 'markdown/parser';
-
-import withAutocard from 'components/WithAutocard';
-import withModal from 'components/WithModal';
-import LinkModal from 'components/LinkModal';
 import FoilCardImage from 'components/FoilCardImage';
+import LinkModal, { LinkModalProps } from 'components/LinkModal';
+import withAutocard, { WithAutocardProps } from 'components/WithAutocard';
+import withModal, { WithModalProps } from 'components/WithModal';
+import CardDetails from 'datatypes/CardDetails';
+import { ALL_PLUGINS, ALL_REHYPE_PLUGINS, LIMITED_REHYPE_PLUGINS } from 'markdown/parser';
 import { isInternalURL, isSamePageURL } from 'utils/Util';
-
-import { Col, Row, Card, CardBody } from 'reactstrap';
 
 const AutocardLink = withAutocard('a');
 const Link = withModal('a', LinkModal);

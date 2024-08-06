@@ -1,14 +1,12 @@
 import React, { useContext } from 'react';
-import PropTypes from 'prop-types';
+import { Button, Collapse, Spinner } from 'reactstrap';
 
-import { Collapse, Button, Spinner } from 'reactstrap';
-
-import UserContext from 'contexts/UserContext';
-import CommentList from 'components/PagedCommentList';
-import LinkButton from 'components/LinkButton';
 import CommentEntry from 'components/CommentEntry';
-import useToggle from 'hooks/UseToggle';
+import LinkButton from 'components/LinkButton';
+import CommentList from 'components/PagedCommentList';
+import UserContext from 'contexts/UserContext';
 import useComments from 'hooks/UseComments';
+import useToggle from 'hooks/UseToggle';
 
 const CommentsSection = ({ parent, collapse, parentType }) => {
   const user = useContext(UserContext);

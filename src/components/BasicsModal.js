@@ -1,9 +1,8 @@
 import React, { useCallback, useState } from 'react';
-import PropTypes from 'prop-types';
-import CardPropType from 'proptypes/CardPropType';
+import { Button, Card as BootstrapCard, Col, Input, Modal, ModalBody, ModalFooter, ModalHeader, Row } from 'reactstrap';
 
+import Card from 'datatypes/Card';
 import { csrfFetch } from 'utils/CSRF';
-import { Button, Row, Col, Modal, ModalBody, ModalFooter, ModalHeader, Input, Card } from 'reactstrap';
 
 const MAX_BASICS = 21;
 

@@ -1,8 +1,7 @@
-/* eslint-disable react/prop-types */
-import React from 'react';
-import { useDrop } from 'react-dnd';
+import React, { ReactNode } from 'react';
+import { Col, ColProps } from 'reactstrap';
 
-import { Col } from 'reactstrap';
+import { DropTargetMonitor, useDrop } from 'react-dnd';
 
 const CardStack = ({ location, children, ...props }) => {
   const [{ isAcceptable }, drop] = useDrop({

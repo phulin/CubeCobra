@@ -1,10 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
-import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import React, { useState } from 'react';
+import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle } from 'reactstrap';
 
 import BlogDeleteModal from 'components/BlogDeleteModal';
-import BlogPostPropType from 'proptypes/BlogPostPropType';
+import BlogPost from 'datatypes/BlogPost';
 
 class BlogContextMenu extends React.Component {
   constructor(props) {

@@ -1,8 +1,8 @@
-/* eslint-disable react/prop-types */
-import React, { useContext, forwardRef } from 'react';
+import React, { ElementType, forwardRef, ReactNode, useContext } from 'react';
 
-import DisplayContext from 'contexts/DisplayContext';
 import AutocardContext from 'contexts/AutocardContext';
+import DisplayContext from 'contexts/DisplayContext';
+import Card from 'datatypes/Card';
 
 const withAutocard = (Tag) =>
   forwardRef(({ card, image, inModal, ...props }, ref) => {
